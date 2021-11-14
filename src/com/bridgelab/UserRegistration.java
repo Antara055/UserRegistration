@@ -4,12 +4,15 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 
 /**
- * The UserRegistration program implements an application that
+ * The UserRegistration program implements an application that take user details with proper pattern or condition
  * @author Antara
  * @since 2021-11-12
  */
 
 public class UserRegistration {
+    /**
+    *This method is used to add First Name with proper pattern
+    */
     public void firstName(){
         Scanner user_input = new Scanner(System.in);
         System.out.println("Enter the First Name");
