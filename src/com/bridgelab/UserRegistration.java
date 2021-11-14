@@ -25,6 +25,10 @@ public class UserRegistration {
                     " and has minimum 3 characters");
     }
     public static void main(String[] args) {
+        /**
+         * This is main method which makes use of firstName method
+         * @return nothing
+         */
         //System.out.println("Welcome To User Registration Problem");
         UserRegistration userRegistration=new UserRegistration();
         userRegistration.firstName();
