@@ -89,7 +89,7 @@ public class UserRegistration {
          */
         System.out.print("Enter password :  ");
         String passwordRule2 = user_input.nextLine();
-        boolean check = Pattern.matches("^(?=.*?[A-Z])(?=.*?[a-z]).{8,}$", passwordRule2);
+        boolean check = Pattern.matches("^(?=.*?[A-Z])[a-z].{8,}$", passwordRule2);
         if (check)
             System.out.println("Password : "+passwordRule2);
         else
