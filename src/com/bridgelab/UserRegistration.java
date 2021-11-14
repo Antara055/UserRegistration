@@ -45,7 +45,7 @@ public class UserRegistration {
          */
         System.out.println("Enter the Email Id");
         String email=user_input.nextLine();
-        boolean checkingCondition = Pattern.matches("^^[a-z]*([.]?[a-z]+)*@bl[.]co([.]?in)*$", email);
+        boolean checkingCondition = Pattern.matches("^[a-z]*([.]?[a-z]+)*@bl[.]co([.]?in)*$", email);
         if (checkingCondition==true)
             System.out.println("Email Id : "+email);
         else
