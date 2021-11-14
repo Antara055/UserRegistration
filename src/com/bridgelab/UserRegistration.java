@@ -64,6 +64,23 @@ public class UserRegistration {
         else
             System.out.println("Please Enter a Valid Mobile Number");
     }
+
+
+    public void passwordRule1(){
+        /**
+         *This method is used to add Password
+         * Rule1-minimun 8 characters
+         */
+        System.out.print("Enter password :  ");
+        String passwordRule1 = user_input.nextLine();
+        boolean check = Pattern.matches("[a-zA-Z]{8,}", passwordRule1);
+        if (check)
+            System.out.println("Password : "+passwordRule1);
+        else
+            System.out.println("Please Enter a Valid password which have minimum 8 characters");
+    }
+
+
     public static void main(String[] args) {
         /**
          * This is main method which makes use of firstName, lastName, email, mobile methods
@@ -75,5 +92,6 @@ public class UserRegistration {
         userRegistration.lastName();
         userRegistration.email();
         userRegistration.mobile();
+        userRegistration.passwordRule1();
     }
 }
