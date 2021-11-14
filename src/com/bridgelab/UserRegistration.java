@@ -45,15 +45,28 @@ public class UserRegistration {
          */
         System.out.println("Enter the Email Id");
         String email=user_input.nextLine();
-        boolean checkingCondition = Pattern.matches("^^[a-z]*([.]?[a-z]+)*@bl[.]co([.]?in)*$", email);
+        boolean checkingCondition = Pattern.matches("^[a-z]*([.]?[a-z]+)*@bl[.]co([.]?in)*$", email);
         if (checkingCondition==true)
             System.out.println("Email Id : "+email);
         else
             System.out.println("Please Enter a Valid Email Id");
     }
+
+    public void mobile(){
+        /**
+         *This method is used to add Mobile Number with proper format
+         */
+        System.out.println("Enter the Mobile Number");
+        String mobile=user_input.nextLine();
+        boolean checkingCondition = Pattern.matches("^91\\s[6789][0-9]{9}", mobile);
+        if (checkingCondition==true)
+            System.out.println("Mobile Number : "+mobile);
+        else
+            System.out.println("Please Enter a Valid Mobile Number");
+    }
     public static void main(String[] args) {
         /**
-         * This is main method which makes use of firstName, lastName, email methods
+         * This is main method which makes use of firstName, lastName, email, mobile methods
          * @return nothing
          */
         //System.out.println("Welcome To User Registration Problem");
@@ -61,5 +74,6 @@ public class UserRegistration {
         userRegistration.firstName();
         userRegistration.lastName();
         userRegistration.email();
+        userRegistration.mobile();
     }
 }
