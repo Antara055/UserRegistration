@@ -90,7 +90,7 @@ public class UserRegistration {
         System.out.print("Enter password which have at least 1 upper case:  ");
         String passwordRule2 = user_input.nextLine();
         boolean check = Pattern.matches("^(?=.*?[A-Z])[a-z].{8,}$", passwordRule2);
-        if (check)
+        if (check==true)
             System.out.println("#Valid Password");
         else
             System.out.println("#Invalid Password");
@@ -122,12 +122,25 @@ public class UserRegistration {
          */
         System.out.println("Enter a password which have atleast 1 uppercase,1 numeric,1 special character");
         String passwordRule4=user_input.nextLine();
-        boolean check= Pattern.matches("^(?=.*?[A-Z])[a-z](?=.*?[0-9])(?=.*?[@$%&*+]).{8,}$", passwordRule4);
+        boolean check= Pattern.matches("^(?=.*?[A-Z])[a-z](?=.*?[0-9])(?=.*?[~!@#$%^&*]).{8,}$", passwordRule4);
         if (check)
             System.out.println("#Valid Password");
         else
             System.out.println("#Invalid Password");
     }
+
+    private void emailSampleCheck(String email) {
+        /**
+         *This method is used to check some email which are passed through parameter
+         */
+        boolean check= Pattern.matches("^[a-z0-9+_.-]+@[a-z0-9.]+$", email);
+        if (check)
+            System.out.println("#Valid Email");
+        else
+            System.out.println("#Invalid Email");
+    }
+
+    // main method
     public static void main(String[] args) {
         /**
          * This is main method which makes use of firstName, lastName, email, mobile, password methods
@@ -143,5 +156,17 @@ public class UserRegistration {
         userRegistration.passwordRule2();
         userRegistration.passwordRule3();
         userRegistration.passwordRule4();
-    }
+
+       // this is code for SAMPLE EMAIL TEST
+        userRegistration.emailSampleCheck("abc@yahoo.com");
+        userRegistration.emailSampleCheck("abc-100@yahoo.com");
+        userRegistration.emailSampleCheck("abc.100@yahoo.com");
+        userRegistration.emailSampleCheck("abc111@abc.com");
+        userRegistration.emailSampleCheck("abc-100@abc.net");
+        userRegistration.emailSampleCheck("abc.100@abc.com.au");
+        userRegistration.emailSampleCheck("abc@1.com");
+        userRegistration.emailSampleCheck("abc@gmail.com.com");
+        userRegistration.emailSampleCheck("abc+100@gmail.com.com");    }
+
+
 }
