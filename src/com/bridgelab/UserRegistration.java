@@ -70,7 +70,7 @@ public class UserRegistration {
         /**
          *This method is used to add Password
          * Rule1-minimun 8 characters
-         */
+      */
         System.out.print("Enter password :  ");
         String passwordRule1 = user_input.nextLine();
         boolean check = Pattern.matches("[a-zA-Z]{8,}", passwordRule1);
@@ -78,6 +78,22 @@ public class UserRegistration {
             System.out.println("Password : "+passwordRule1);
         else
             System.out.println("Please Enter a Valid password which have minimum 8 characters");
+    }
+
+
+    public void passwordRule2(){
+        /**
+         *This method is used to add Password
+         * Rule1-minimun 8 characters
+         * Rule2-at least 1 upper case
+         */
+        System.out.print("Enter password :  ");
+        String passwordRule2 = user_input.nextLine();
+        boolean check = Pattern.matches("^(?=.*?[A-Z])(?=.*?[a-z]).{8,}$", passwordRule2);
+        if (check)
+            System.out.println("Password : "+passwordRule2);
+        else
+            System.out.println("Please Enter a Valid password which have at least 1 upper case");
     }
 
 
@@ -92,6 +108,6 @@ public class UserRegistration {
         userRegistration.lastName();
         userRegistration.email();
         userRegistration.mobile();
-        userRegistration.passwordRule1();
+        userRegistration.passwordRule2();
     }
 }
