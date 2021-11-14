@@ -156,6 +156,7 @@ public class UserRegistration {
         userRegistration.passwordRule2();
         userRegistration.passwordRule3();
         userRegistration.passwordRule4();
+<<<<<<< HEAD
 
        // this is code for SAMPLE EMAIL TEST
         userRegistration.emailSampleCheck("abc@yahoo.com");
