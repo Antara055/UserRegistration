@@ -122,7 +122,7 @@ public class UserRegistration {
          */
         System.out.println("Enter a password which have atleast 1 uppercase,1 numeric,1 special character");
         String passwordRule4=user_input.nextLine();
-        boolean check= Pattern.matches("^(?=.*?[A-Z])[a-z](?=.*?[0-9])(?=.*?[@$%&*+]).{8,}$", passwordRule4);
+        boolean check= Pattern.matches("^(?=.*?[A-Z])[a-z](?=.*?[0-9])(?=.*?[~!@#$%^&*]).{8,}$", passwordRule4);
         if (check)
             System.out.println("#Valid Password");
         else
