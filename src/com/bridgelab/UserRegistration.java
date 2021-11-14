@@ -112,6 +112,22 @@ public class UserRegistration {
             System.out.println("#Invalid Password");
     }
 
+    public void passwordRule4() {
+        /**
+         *This method is used to add Password
+         * Rule1-minimun 8 characters
+         * Rule2-at least 1 upper case
+         * Rule3-at least 1 numeric number
+         * Rule4-at least 1 special character
+         */
+        System.out.println("Enter a password which have atleast 1 uppercase,1 numeric,1 special character");
+        String passwordRule4=user_input.nextLine();
+        boolean check= Pattern.matches("^(?=.*?[A-Z])[a-z](?=.*?[0-9])(?=.*?[@$%&*+]).{8,}$", passwordRule4);
+        if (check)
+            System.out.println("#Valid Password");
+        else
+            System.out.println("#Invalid Password");
+    }
     public static void main(String[] args) {
         /**
          * This is main method which makes use of firstName, lastName, email, mobile, password methods
@@ -126,5 +142,6 @@ public class UserRegistration {
         userRegistration.passwordRule1();
         userRegistration.passwordRule2();
         userRegistration.passwordRule3();
+        userRegistration.passwordRule4();
     }
 }
