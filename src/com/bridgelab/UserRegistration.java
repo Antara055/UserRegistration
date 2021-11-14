@@ -71,13 +71,13 @@ public class UserRegistration {
          *This method is used to add Password
          * Rule1-minimun 8 characters
       */
-        System.out.print("Enter password :  ");
+        System.out.print("Enter password which have minimun 8 characters :  ");
         String passwordRule1 = user_input.nextLine();
         boolean check = Pattern.matches("[a-zA-Z]{8,}", passwordRule1);
         if (check)
-            System.out.println("Password : "+passwordRule1);
+            System.out.println("#Valid Password");
         else
-            System.out.println("Please Enter a Valid password which have minimum 8 characters");
+            System.out.println("#Invalid Password");
     }
 
 
@@ -87,19 +87,34 @@ public class UserRegistration {
          * Rule1-minimun 8 characters
          * Rule2-at least 1 upper case
          */
-        System.out.print("Enter password :  ");
+        System.out.print("Enter password which have at least 1 upper case:  ");
         String passwordRule2 = user_input.nextLine();
         boolean check = Pattern.matches("^(?=.*?[A-Z])[a-z].{8,}$", passwordRule2);
         if (check)
-            System.out.println("Password : "+passwordRule2);
+            System.out.println("#Valid Password");
         else
-            System.out.println("Please Enter a Valid password which have at least 1 upper case");
+            System.out.println("#Invalid Password");
     }
 
+    public void passwordRule3(){
+        /**
+         *This method is used to add Password
+         * Rule1-minimun 8 characters
+         * Rule2-at least 1 upper case
+         * Rule3-at least 1 numeric number
+         */
+        System.out.print("Enter password which have at least 1 numeric number:  ");
+        String passwordRule3 = user_input.nextLine();
+        boolean check = Pattern.matches("^(?=.*?[A-Z])[a-z](?=.*?[0-9]).{8,}$", passwordRule3);
+        if (check)
+            System.out.println("#Valid Password");
+        else
+            System.out.println("#Invalid Password");
+    }
 
     public static void main(String[] args) {
         /**
-         * This is main method which makes use of firstName, lastName, email, mobile methods
+         * This is main method which makes use of firstName, lastName, email, mobile, password methods
          * @return nothing
          */
         //System.out.println("Welcome To User Registration Problem");
@@ -108,6 +123,8 @@ public class UserRegistration {
         userRegistration.lastName();
         userRegistration.email();
         userRegistration.mobile();
+        userRegistration.passwordRule1();
         userRegistration.passwordRule2();
+        userRegistration.passwordRule3();
     }
 }
