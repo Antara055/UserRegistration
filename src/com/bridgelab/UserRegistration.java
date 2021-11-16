@@ -147,7 +147,7 @@ public class UserRegistration {
          * @return nothing
          */
         //System.out.println("Welcome To User Registration Problem");
-        UserRegistration userRegistration=new UserRegistration();
+        UserRegistration userRegistration = new UserRegistration();
         userRegistration.firstName();
         userRegistration.lastName();
         userRegistration.email();
@@ -156,9 +156,8 @@ public class UserRegistration {
         userRegistration.passwordRule2();
         userRegistration.passwordRule3();
         userRegistration.passwordRule4();
-<<<<<<< HEAD
 
-       // this is code for SAMPLE EMAIL TEST
+        // this is code for SAMPLE EMAIL TEST
         userRegistration.emailSampleCheck("abc@yahoo.com");
         userRegistration.emailSampleCheck("abc-100@yahoo.com");
         userRegistration.emailSampleCheck("abc.100@yahoo.com");
@@ -167,7 +166,7 @@ public class UserRegistration {
         userRegistration.emailSampleCheck("abc.100@abc.com.au");
         userRegistration.emailSampleCheck("abc@1.com");
         userRegistration.emailSampleCheck("abc@gmail.com.com");
-        userRegistration.emailSampleCheck("abc+100@gmail.com.com");    }
-
+        userRegistration.emailSampleCheck("abc+100@gmail.com.com");
+    }
 
 }
