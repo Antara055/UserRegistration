@@ -166,7 +166,13 @@ public class UserRegistration {
         userRegistration.emailSampleCheck("abc.100@abc.com.au");
         userRegistration.emailSampleCheck("abc@1.com");
         userRegistration.emailSampleCheck("abc@gmail.com.com");
+<<<<<<< HEAD
         userRegistration.emailSampleCheck("abc+100@gmail.com.com");
     }
 
 }
+=======
+        userRegistration.emailSampleCheck("abc+100@gmail.com.com");   
+    }
+}
+>>>>>>> 96b31045aeb830e92e286ef8b971eb132b784aa9
