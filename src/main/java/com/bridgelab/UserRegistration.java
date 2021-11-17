@@ -1,7 +1,8 @@
 package com.bridgelab;
 
-
-        import java.util.regex.Pattern;
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * The UserRegistration program implements an application that take user details with proper pattern or condition
@@ -9,82 +10,116 @@ package com.bridgelab;
  * @since 2021-11-12
  */
 
-public class UserRegistration {
-    public static String firstName(String fName){
+public class UserRegistration{
+    Scanner scanner=new Scanner(System.in);
+
+    public String firstName(String fName) throws UserRegistrationException {
         /**
          *This method is used to add First Name with proper pattern
          */
-        boolean checkingCondition = Pattern.matches("[A-Z][a-z]{3,}", fName);
-        if (checkingCondition==true) {
-            System.out.println("Valid First Name : " + fName);
-            System.out.println(analyseMood("Happy"));
-            return "Happy";
+        String regex = "[A-Z][a-z]{3,}";
+        try {
+            //code may raise exception
+            Pattern pattern = Pattern.compile(regex);
+            if (fName.isEmpty()) {
+                throw new UserRegistrationException("Enter a valid first name");
+            }
+            Matcher matcher = pattern.matcher(fName);
+            if (matcher.matches()) {
+                System.out.println("Valid First Name : " + fName);
+                System.out.println(analyseMood("Happy"));
+                return "Happy";
+            } else {
+                System.out.println("Please Enter a Valid First name which start with Capital letter" +
+                        " and has minimum 3 characters");
+                System.out.println(analyseMood("Sad"));
+                return "Sad";
+            }
+        } catch (UserRegistrationException e) {
+            throw new UserRegistrationException("Please enter valid First Name!");
         }
-        else {
-            System.out.println("Please Enter a Valid First name which start with Capital letter" +
-                    " and has minimum 3 characters");
-            System.out.println(analyseMood("Sad"));
-            return "Sad";
-        }
-
     }
-
-    public static String lastName(String lName){
+    public String lastName(String lName) throws UserRegistrationException {
         /**
          *This method is used to add Last Name with proper pattern
          */
-        boolean checkingCondition = Pattern.matches("[A-Z][a-z]{3,}", lName);
-        if (checkingCondition==true){
-            System.out.println("Valid Last Name : "+lName);
-            System.out.println(analyseMood("Happy"));
-            return "Happy";}
-        else {
-            System.out.println("Please Enter a Valid Last name which start with Capital letter" +
-                    " and has minimum 3 characters");
-            System.out.println(analyseMood("Sad"));
-            return "Sad";
+        String regex = "[A-Z][a-z]{3,}";
+        try {
+            //code may raise exception
+            Pattern pattern = Pattern.compile(regex);
+            if (lName.isEmpty()) {
+                throw new UserRegistrationException("enter a valid last name");
+            }
+            Matcher matcher = pattern.matcher(lName);
+            if (matcher.matches()) {
+                System.out.println("Valid Last Name : " + lName);
+                System.out.println(analyseMood("Happy"));
+                return "Happy";
+            } else {
+                System.out.println("Please Enter a Valid Last name which start with Capital letter" +
+                        " and has minimum 3 characters");
+                System.out.println(analyseMood("Sad"));
+                return "Sad";
+            }
+        } catch (UserRegistrationException e) {
+            throw new UserRegistrationException("enter a valid last name");
         }
     }
-
-    public static String email(String email){
+    public String email(String email) throws UserRegistrationException{
         /**
          *This method is used to add Email with proper pattern
          */
-
-        boolean checkingCondition = Pattern.matches("^[a-z]*([.]?[a-z]+)*@bl[.]co([.]?in)*$", email);
-        if (checkingCondition==true){
-            System.out.println("Valid Email Id : "+email);
-            System.out.println(analyseMood("Happy"));
-            return "Happy";}
-
-        else {
-            System.out.println("Please Enter a Valid Email Id");
-            System.out.println(analyseMood("Sad"));
-            return "Sad";
+        String regex="^[a-z]*([.]?[a-z]+)*@bl[.]co([.]?in)*$";
+        try {
+            //code may raise exception
+            Pattern pattern = Pattern.compile(regex);
+            if (email.isEmpty()) {
+                throw new UserRegistrationException("enter a valid last name");
+            }
+            Matcher matcher = pattern.matcher(email);
+            if (matcher.matches()) {
+                System.out.println("Valid Email Id : "+email);
+                System.out.println(analyseMood("Happy"));
+                return "Happy";
+            } else {
+                System.out.println("Please Enter a Valid Email Id");
+                System.out.println(analyseMood("Sad"));
+                return "Sad";
+            }
+        } catch (UserRegistrationException e) {
+            throw new UserRegistrationException("enter a valid email");
         }
     }
 
-    public static String mobile(String mobile){
+
+    public String mobile(String mobile) throws UserRegistrationException{
         /**
          *This method is used to add Mobile Number with proper format
          */
-
-        boolean checkingCondition = Pattern.matches("^91\\s[6789][0-9]{9}", mobile);
-        if (checkingCondition==true){
-            System.out.println("Valid Mobile Number : "+mobile);
-            System.out.println(analyseMood("Happy"));
-            return "Happy";
-        }
-        else {
-            System.out.println("Please Enter a Valid Mobile Number");
-            System.out.println(analyseMood("Sad"));
-            return "Sad";
+        String regex="^91\\s[6789][0-9]{9}";
+        try {
+            //code may raise exception
+            Pattern pattern = Pattern.compile(regex);
+            if (mobile.isEmpty()) {
+                throw new UserRegistrationException("enter a valid last name");
+            }
+            Matcher matcher = pattern.matcher(mobile);
+            if (matcher.matches()) {
+                System.out.println("Valid Mobile Number : "+mobile);
+                System.out.println(analyseMood("Happy"));
+                return "Happy";
+            } else
+            {
+                System.out.println("Please Enter a Valid Mobile Number");
+                System.out.println(analyseMood("Sad"));
+                return "Sad";
+            }
+        } catch (UserRegistrationException e) {
+            throw new UserRegistrationException("enter a valid mobile");
         }
     }
 
-
-
-    public static String passwordRule4(String password) {
+    public String password(String password) throws UserRegistrationException{
         /**
          *This method is used to add Password
          * Rule1-minimun 8 characters
@@ -92,20 +127,26 @@ public class UserRegistration {
          * Rule3-at least 1 numeric number
          * Rule4-at least 1 special character
          */
-
-        boolean check= Pattern.matches("^(?=.*?[A-Z])[a-z](?=.*?[0-9])(?=.*?[~!@#$%^&*]).{8,}$", password);
-        if (check){
-            System.out.println("#Valid Password : "+password);
-            System.out.println(analyseMood("Happy"));
-            return "Happy";
-        }
-        else {
-            System.out.println("#Invalid Password");
-            System.out.println(analyseMood("Sad"));
-            return "Sad";
+        String regex = "^(?=.*?[A-Z])[a-z](?=.*?[0-9])(?=.*?[~!@#$%^&*]).{8,}$";
+        try {
+            Pattern pattern = Pattern.compile(regex);
+            if (password.isEmpty()) {
+                throw new UserRegistrationException("enter a valid last name");
+            }
+            Matcher matcher = pattern.matcher(password);
+            if (matcher.matches()) {
+                System.out.println("#Valid Password : " + password);
+                System.out.println(analyseMood("Happy"));
+                return "Happy";
+            } else {
+                System.out.println("#Invalid Password");
+                System.out.println(analyseMood("Sad"));
+                return "Sad";
+            }
+        } catch (UserRegistrationException e) {
+            throw new UserRegistrationException("enter a valid password");
         }
     }
-
     public static boolean emailSampleCheck(String email) {
         /**
          *This method is used to check some email which are passed through parameter
@@ -119,18 +160,24 @@ public class UserRegistration {
     }
 
     // main method
-    public static void main(String[] args) {
+    public static void main(String[] args) throws UserRegistrationException {
         /**
          * This is main method which makes use of firstName, lastName, email, mobile, password methods
          * @return nothing
          */
         //System.out.println("Welcome To User Registration Problem");
         UserRegistration userRegistration=new UserRegistration();
-        firstName("Antara");
-        lastName("Chowdhury");
-        email("abc.xyz@bl.co");
-        mobile("91 8725648308");
-        passwordRule4("antarA&5555");
+        Scanner userInput=new Scanner(System.in);
+        System.out.println("Enter the first name : ");
+        userRegistration.firstName(userInput.next());
+        System.out.println("Enter the last name : ");
+        userRegistration.lastName(userInput.next());
+        System.out.println("Enter the email : ");
+        userRegistration.email(userInput.next());
+        System.out.println("Enter the mobile no : ");
+        userRegistration.mobile(userInput.next());
+        System.out.println("Enter the password : ");
+        userRegistration.password(userInput.next());
 
         // this is code for SAMPLE EMAIL TEST
         emailSampleCheck("abc@yahoo.com");
