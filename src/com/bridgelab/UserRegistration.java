@@ -169,7 +169,3 @@ public class UserRegistration {
         userRegistration.emailSampleCheck("abc+100@gmail.com.com");
     }
 
-}
-        userRegistration.emailSampleCheck("abc+100@gmail.com.com");   
-    }
-}
